@@ -22,33 +22,25 @@
 //   }
 // }
 
-import React, { useState, useEffect } from "react";
-import "./app.css";
-import ReactImage from "./react.png";
+import React, { useEffect, useState } from "react";
+import NestedDataComponent from "./NestedDataComponent";
 
-const App = () => {
-  const [username, setUsername] = useState(null);
-
+function App() {
+  const [nestedData, setNestedData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/api/getUsername");
+      const response = await fetch("/api/getNestedData");
       const data = await response.json();
-      setUsername(data.username);
+      setNestedData(data);
     };
 
     fetchData();
   }, []);
-
   return (
-    <div>
-      {username ? (
-        <h1>{`Hello ${username}`}</h1>
-      ) : (
-        <h1>Loading.. please wait!</h1>
-      )}
-      <img src={ReactImage} alt="react" />
+    <div className="App">
+      <NestedDataComponent nestedData={nestedData} />
     </div>
   );
-};
+}
 
 export default App;

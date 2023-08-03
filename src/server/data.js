@@ -1,4 +1,4 @@
-export const data = [
+export const nestedData = [
   {
     _id: "6371aeb4865d2539bf333813",
     parent: null,
