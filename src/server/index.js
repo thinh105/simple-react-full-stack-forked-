@@ -4,7 +4,7 @@ const express = require("express");
 const { nestedData } = "./data";
 
 // basic deep clone
-const database = JSON.parse(JSON.stringify(nestedData));
+const database = nestedData;
 
 const app = express();
 
